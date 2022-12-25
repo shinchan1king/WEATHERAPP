@@ -21,7 +21,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     error_reporting(0);
     $add_city = $_POST["city_add"];
     
-    $string = "http://api.openweathermap.org/data/2.5/weather?q=".$add_city."&units=metric&appid=7f9bf45408aa31617553024e016fe264";
+    $string = "http://api.openweathermap.org/data/2.5/weather?q=".$add_city."&units=metric&appid={your api key}";
     $payload = file_get_contents($string);
     if($add_city){
         if(($payload)) {
@@ -102,7 +102,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                       foreach($str2 as $city)
                         {
                             
-                            $string = "http://api.openweathermap.org/data/2.5/weather?q=".$city."&units=metric&appid=4da85e50a9e8c8b0e38766bcdb4de4da";
+                            $string = "http://api.openweathermap.org/data/2.5/weather?q=".$city."&units=metric&appid={your api key}";
                             $data = json_decode(file_get_contents($string),true);
                             $temp = $data['main']['temp'];
                             $icon = $data['weather'][0]['icon'];
